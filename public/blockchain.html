@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Blockchain</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="blockchain.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="blockchain_demo.html" align="center">Blockchain Demo</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="hash.html">Hash</a></li>
+            <li><a href="block.html">Block</a></li>
+            <li><a href="signature.html">Signature</a></li>
+            <li class="active"><a href="blockchain.html">Blockchain</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <h1>Blockchain</h1>
+      <table>
+        <tr>
+          <td valign="top" class="blockchainshell">
+            <table>
+              <tr class="blockrow">
+                <td><label for="blockchain1">Block: </label></td>
+                <td>
+                  <div id="input" class="input-group">
+                    <span class="input-group-addon">#</span>
+                    <input id="blockchain1" type="text" value="1" onkeyup="updateHash(1, 1);" class="form-control">
+                  </div>
+                </td>
+              </tr>
+              <tr class="blockrow">
+                <td><label for="blockchainnonce1">Nonce: </label></td>
+                <td><input id="blockchainnonce1" class="blockchaintext" type="text" name="" value="72608"></td>
+              </tr>
+              <tr class="blockrow">
+                <td><label for="blockchaindata1">Data: </label></td>
+                <td><textarea id="blockchaindata1" class="blockchaininput" name="name" rows="8" cols="80"></textarea></td>
+              </tr>
+              <tr class="blockrow">
+                <td><label for="blockchain1">Coinbase: </label></td>
+                <td>
+                  <div id="input" class="input-group">
+                    <span class="input-group-addon">$</span>
+                    <input id="blockchain1" type="text" value="1000.00" onkeyup="updateHash(1, 1);" class="form-control">
+                    <span class="input-group-addon">to</span>
+                    <input id="blockchain1" type="text" value="95164852a9de3067631c8dbba88c97cbabb1f0bb5123190aa6918bb834cb1c59" onkeyup="updateHash(1, 1);" class="form-control">
+                  </div>
+                </td>
+              </tr>
+              <tr class="blockrow">
+                <td><label for="blockchainprev1">Prev: </label></td>
+                <td><input id="blockchainprev1" class="blockchaintext" disabled="disabled" type="text" name="" value="0000000000000000000000000000000000000000000000000000000000000000"></td>
+              </tr>
+              <tr class="blockrow">
+                <td><label for="blockchainhash1">Hash: </label></td>
+                <td><input id="blockchainhash1" class="blockchaintext" disabled="disabled" type="text" name="" value="0000f727854b50bb95c054b39c1fe5c92e5ebcfa4bcb5dc279f56aa96a365e5a"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><input id="mine1" class="mine" type="submit" name="" value="Mine"></td>
+              </tr>
+            </table>
+          </td>
+          <td class="blockchainspace">____</td>
+          <td valign="top" class="blockchainshell">
+            <table>
+              <tr class="blockrow">
+                <td><label for="blockchain2">Block: </label></td>
+                <td>
+                  <div id="input" class="input-group">
+                    <span class="input-group-addon">#</span>
+                    <input id="blockchain2" type="text" value="2" onkeyup="updateHash(2, 1);" class="form-control">
+                  </div>
+                </td>
+              </tr>
+              <tr class="blockrow">
+                <td><label for="blockchainnonce2">Nonce: </label></td>
+                <td><input id="blockchainnonce2" class="blockchaintext" type="text" name="" value="53641"></td>
+              </tr>
+              <tr class="blockrow">
+                <td><label for="blockchaindata2">Data: </label></td>
+                <td><textarea id="blockchaindata2" class="blockchaininput" name="name" rows="8" cols="80"></textarea></td>
+              </tr>
+              <tr class="blockrow">
+                <td><label for="blockchain1">Coinbase: </label></td>
+                <td>
+                  <div id="input" class="input-group">
+                    <span class="input-group-addon">$</span>
+                    <input id="blockchain1" type="text" value="1000.00" onkeyup="updateHash(1, 1);" class="form-control">
+                    <span class="input-group-addon">to</span>
+                    <input id="blockchain1" type="text" value="95164852a9de3067631c8dbba88c97cbabb1f0bb5123190aa6918bb834cb1c59" onkeyup="updateHash(1, 1);" class="form-control">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="blockchain1">Transaction: </label></td>
+                <td>
+                  <table>
+                    <tr>
+                      <td class="transactionrow">
+                        <div id="input" class="input-group">
+                          <span class="input-group-addon">$</span>
+                          <input id="blockchain1" type="text" value="100.00" onkeyup="updateHash(1, 1);" class="form-control">
+                          <span class="input-group-addon">from</span>
+                          <input id="blockchain1" type="text" value="35bbc731720dd8174d48cd171b518bbcab0f03a7e0cd2f3e4bb5b1d128b6a6ca" onkeyup="updateHash(1, 1);" class="form-control">
+                          <span class="input-group-addon">to</span>
+                          <input id="blockchain1" type="text" value="95164852a9de3067631c8dbba88c97cbabb1f0bb5123190aa6918bb834cb1c59" onkeyup="updateHash(1, 1);" class="form-control">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div id="input" class="input-group">
+                          <span class="input-group-addon">Seq</span>
+                          <input id="blockchain1" type="text" value="1" onkeyup="updateHash(1, 1);" class="form-control">
+                          <span class="input-group-addon">Sig</span>
+                          <input id="blockchain1" type="text" value="f9772571e0627630e9c12adc495c8295eafc7d870642e17163bb05d1167ba889" onkeyup="updateHash(1, 1);" class="form-control">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="transactionrow">
+                        <div id="input" class="input-group">
+                          <span class="input-group-addon">$</span>
+                          <input id="blockchain1" type="text" value="100.00" onkeyup="updateHash(1, 1);" class="form-control">
+                          <span class="input-group-addon">from</span>
+                          <input id="blockchain1" type="text" value="35bbc731720dd8174d48cd171b518bbcab0f03a7e0cd2f3e4bb5b1d128b6a6ca" onkeyup="updateHash(1, 1);" class="form-control">
+                          <span class="input-group-addon">to</span>
+                          <input id="blockchain1" type="text" value="95164852a9de3067631c8dbba88c97cbabb1f0bb5123190aa6918bb834cb1c59" onkeyup="updateHash(1, 1);" class="form-control">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div id="input" class="input-group">
+                          <span class="input-group-addon">Seq</span>
+                          <input id="blockchain1" type="text" value="2" onkeyup="updateHash(1, 1);" class="form-control">
+                          <span class="input-group-addon">Sig</span>
+                          <input id="blockchain1" type="text" value="071f5129c635c7ee65c2cd0d585cf6b4ed98bf5a400ff3cc45d51b1bcf084207" onkeyup="updateHash(1, 1);" class="form-control">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="transactionrow">
+                        <div id="input" class="input-group">
+                          <span class="input-group-addon">$</span>
+                          <input id="blockchain1" type="text" value="100.00" onkeyup="updateHash(1, 1);" class="form-control">
+                          <span class="input-group-addon">from</span>
+                          <input id="blockchain1" type="text" value="35bbc731720dd8174d48cd171b518bbcab0f03a7e0cd2f3e4bb5b1d128b6a6ca" onkeyup="updateHash(1, 1);" class="form-control">
+                          <span class="input-group-addon">to</span>
+                          <input id="blockchain1" type="text" value="95164852a9de3067631c8dbba88c97cbabb1f0bb5123190aa6918bb834cb1c59" onkeyup="updateHash(1, 1);" class="form-control">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div id="input" class="input-group">
+                          <span class="input-group-addon">Seq</span>
+                          <input id="blockchain1" type="text" value="3" onkeyup="updateHash(1, 1);" class="form-control">
+                          <span class="input-group-addon">Sig</span>
+                          <input id="blockchain1" type="text" value="20f98c662f8df7d730de3da5075265d793dd1490b6d5953a92cfd6f9d65a3fb3" onkeyup="updateHash(1, 1);" class="form-control">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="transactionrow">
+                        <div id="input" class="input-group">
+                          <span class="input-group-addon">$</span>
+                          <input id="blockchain1" type="text" value="100.00" onkeyup="updateHash(1, 1);" class="form-control">
+                          <span class="input-group-addon">from</span>
+                          <input id="blockchain1" type="text" value="35bbc731720dd8174d48cd171b518bbcab0f03a7e0cd2f3e4bb5b1d128b6a6ca" onkeyup="updateHash(1, 1);" class="form-control">
+                          <span class="input-group-addon">to</span>
+                          <input id="blockchain1" type="text" value="95164852a9de3067631c8dbba88c97cbabb1f0bb5123190aa6918bb834cb1c59" onkeyup="updateHash(1, 1);" class="form-control">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div id="input" class="input-group">
+                          <span class="input-group-addon">Seq</span>
+                          <input id="blockchain1" type="text" value="4" onkeyup="updateHash(1, 1);" class="form-control">
+                          <span class="input-group-addon">Sig</span>
+                          <input id="blockchain1" type="text" value="53e70a8d3e3979e6457ab852c303dc61a030810e43551b6f05b4d2db36793912" onkeyup="updateHash(1, 1);" class="form-control">
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="blockrow">
+                <td><label for="blockchainprev2">Prev: </label></td>
+                <td><input id="blockchainprev2" class="blockchaintext" disabled="disabled" type="text" name="" value="0000f727854b50bb95c054b39c1fe5c92e5ebcfa4bcb5dc279f56aa96a365e5a"></td>
+              </tr>
+              <tr class="blockrow">
+                <td><label for="blockchainhash2">Hash: </label></td>
+                <td><input id="blockchainhash2" class="blockchaintext" disabled="disabled" type="text" name="" value="0000aedec6ad3801f841a9dfc1d4bffe32df5606114e665f926304ee333b7bd9"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><input id="mine2" class="mine" type="submit" name="" value="Mine"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br>
+    </div>
+    <script src="blockchain.js"></script>
+  </body>
+</html>
